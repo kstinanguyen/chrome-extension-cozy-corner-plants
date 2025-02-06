@@ -1,0 +1,35 @@
+.plant-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 6px;
+  width: 100%;
+  overflow-y: auto;
+  max-height: calc(100vh - 20px);
+}
+
+.plant-container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(33% - 10px);
+  width: 150px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.plant-container select {
+  margin-bottom: 10px;
+  font-family: 'Press Start 2P', monospace;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%; 
+  box-sizing: border-box;
+}
+
+.plant-container img {
+  max-width: 100%;
+  height: auto;
+}
