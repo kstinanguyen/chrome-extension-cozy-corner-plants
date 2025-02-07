@@ -12,12 +12,13 @@ interface PlantProps {
     name: string;
   }[];
   selectedColor: string;
+  onClick: () => void;
 }
 
-const Plant: React.FC<PlantProps> = ({ phrase, availableSVGs, selectedColor }) => {
+const Plant: React.FC<PlantProps> = ({ phrase, availableSVGs, selectedColor, growthStage, onClick }) => {
   const [showPhrase, setShowPhrase] = useState<string | null>(null);
 
-  const displayedImage = availableSVGs.find(svg => svg.color === selectedColor);
+  const displayedImage = availableSVGs.find(svg => svg.color === selectedColor && svg.stage === growthStage);
 
   const getRandomPhrase = () => {
     const randomIndex = Math.floor(Math.random() * phrase.length);
@@ -30,13 +31,12 @@ const Plant: React.FC<PlantProps> = ({ phrase, availableSVGs, selectedColor }) =
       className="plant"
       onMouseEnter={() => setShowPhrase(getRandomPhrase())}
       onMouseLeave={() => setShowPhrase(null)}
+      onClick={onClick}
     >
       {displayedImage && (
         <img
           src={chrome.runtime.getURL(displayedImage.image)}
           alt={displayedImage.name}
-          width="50"
-          height="50"
         />
       )}
 

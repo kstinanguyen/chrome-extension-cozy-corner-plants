@@ -16,7 +16,14 @@
   color: #fff;
   padding: 8px 12px;
   border-radius: 4px;
-  white-space: nowrap;
+  /* white-space: nowrap; */
+  word-wrap: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto; /* For Safari */
+  -moz-hyphens: auto; /* For Firefox */
+  -ms-hyphens: auto; /* For older IE */
+  width: max-content;
+  max-width: 150px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   z-index: 10; 
   font-size: 8px;
@@ -24,6 +31,7 @@
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 0, 0, 0.1); 
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; 
   opacity: 0; 
+  text-align: center;
 }
 
 .plant:hover .phrase-popup {
