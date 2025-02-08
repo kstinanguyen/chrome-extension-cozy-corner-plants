@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Plant from './Plant';
 import './PlantContainer.css';
 import { plantPotColors } from './utils/plantData';
@@ -51,6 +51,14 @@ const PlantContainer = () => {
     3: 1,
   });
 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (phrases.length > 0) {
+      setLoading(false);
+    }
+  }, [phrases]);
+
   const handlePlantClick = (plantNumber: number) => {
     setGrowthStages((prevStages) => ({
       ...prevStages,
@@ -73,6 +81,7 @@ const PlantContainer = () => {
 
   return (
     <div className="plant-container">
+      {loading && <p>Loading phrases...</p>}
       {phrases.length > 0 && (
         <> 
           {[1, 2, 3].map((plantNumber) => (
