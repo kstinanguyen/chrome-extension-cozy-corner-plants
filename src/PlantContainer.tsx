@@ -31,14 +31,8 @@ const plantOptions = [
   { stage: 3, color: "white", image: 'assets/s3f_white.svg', name: "S3fWhite" },
 ];
 
-// const getFilteredSVGs = (plantNumber: number, stage: number) => {
-//   return plantOptions.filter((svg) =>
-//     plantPotColors[plantNumber].includes(svg.color) && svg.stage === stage
-//   );
-// };
-
 const PlantContainer = () => {
-  const phrases = useFetchPhrases();
+  const { phrases, loading: fetchLoading, error } = useFetchPhrases();
   const [selectedPotType, setSelectedPotType] = useState<Record<number, string>>({
     1: plantPotColors[1][0], 
     2: plantPotColors[2][0], 
@@ -54,10 +48,10 @@ const PlantContainer = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (phrases.length > 0) {
+    if (phrases || fetchLoading) {
       setLoading(false);
     }
-  }, [phrases]);
+  }, [fetchLoading, phrases]);
 
   const handlePlantClick = (plantNumber: number) => {
     setGrowthStages((prevStages) => ({
@@ -82,6 +76,7 @@ const PlantContainer = () => {
   return (
     <div className="plant-container">
       {loading && <p>Loading phrases...</p>}
+      {error && <p>Error: {error}</p>}
       {phrases.length > 0 && (
         <> 
           {[1, 2, 3].map((plantNumber) => (

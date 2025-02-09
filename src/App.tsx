@@ -1,4 +1,3 @@
-// import WidgetWindow from './WidgetWindow';
 import PlantContainer from "./PlantContainer";
 import './App.css'
 
