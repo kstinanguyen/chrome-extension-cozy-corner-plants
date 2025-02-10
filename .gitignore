@@ -16,6 +16,10 @@ build
 
 .env
 
+extension.pem
+extension.crx
+extension.zip
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
