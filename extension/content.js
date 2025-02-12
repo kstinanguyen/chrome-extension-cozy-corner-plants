@@ -12,7 +12,7 @@ port.onMessage.addListener((response) => {
 });
 function displayPhrasesOnPlants(phrases) {
     console.log('Displaying phrases on plants:', phrases);
-    const plants = document.querySelectorAll('.plant'); // Adjust this selector to your actual plant elements
+    const plants = document.querySelectorAll('.plant');
     plants.forEach((plant, index) => {
         plant.setAttribute('title', phrases[index] || 'Grow strong!');
     });
