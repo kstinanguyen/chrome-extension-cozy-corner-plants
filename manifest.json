@@ -8,11 +8,6 @@
     "popup_height": 400,
     "popup_width": 300
   },
-  "permissions": [
-    "storage",
-    "scripting",
-    "activeTab"
-  ],
   "web_accessible_resources": [
     {
       "resources": [
