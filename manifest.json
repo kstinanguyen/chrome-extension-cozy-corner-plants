@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Cozy Corner Plants",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cozy Corner Plants is a Google Chrome Extension that brings the joys of indoor plants to a cozy corner of a user's browser.",
   "action": {
     "default_popup": "index.html",
@@ -17,12 +17,12 @@
     }
   ],
   "host_permissions": [
-    "https://cozy-corner-plants-backend.onrender.com/*"
+    "https://cozy-corner-plants-backend.onrender.com/api/phrases"
   ],
   "background": {
     "service_worker": "background.js"
   },
-  "content_scripts": [
+  "user_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"]
